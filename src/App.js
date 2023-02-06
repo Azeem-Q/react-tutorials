@@ -25,16 +25,22 @@ function App() {
 
   const [newItem, setNewItem] = useState("");
 
+<<<<<<< HEAD
   const setAndSaveItems = (newItems) => {
     setItems(newItems);
     localStorage.setItem("shoppinglist", JSON.stringify(newItems));
   };
 
+=======
+>>>>>>> 9e6ea133d3c6385cb125965b052585c3d8116047
   const addItem = (item) => {
     const id = items.length ? items[items.length - 1].id + 1 : 1;
     const myNewItem = { id, checked: false, item };
     const listItems = { ...items, myNewItem };
+<<<<<<< HEAD
     setAndSaveItems(listItems);
+=======
+>>>>>>> 9e6ea133d3c6385cb125965b052585c3d8116047
   };
 
   const handleCheck = (id) => {
