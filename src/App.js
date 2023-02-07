@@ -5,23 +5,9 @@ import Footer from "./Footer";
 import { useState } from "react";
 
 function App() {
-  const [items, setItems] = useState([
-    {
-      id: 1,
-      checked: true,
-      item: "One half pound bag of Cocoa Covered Almonds Unsalted",
-    },
-    {
-      id: 2,
-      checked: false,
-      item: "Item 2",
-    },
-    {
-      id: 3,
-      checked: false,
-      item: "Item 3",
-    },
-  ]);
+  const [items, setItems] = useState(
+    JSON.parse(localStorage.getItem("shoppinglist"))
+  );
 
   const [newItem, setNewItem] = useState("");
 
@@ -33,7 +19,7 @@ function App() {
   const addItem = (item) => {
     const id = items.length ? items[items.length - 1].id + 1 : 1;
     const myNewItem = { id, checked: false, item };
-    const listItems = { ...items, myNewItem };
+    const listItems = [...items, myNewItem];
 
     setAndSaveItems(listItems);
   };
